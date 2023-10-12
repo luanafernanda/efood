@@ -10,7 +10,8 @@ import {
   Restaurantes,
   Logo,
   ItemContainer,
-  ContentWrapper
+  ContentWrapper,
+  LinkItem
 } from './styles'
 
 const Header: React.FC = () => {
@@ -18,9 +19,9 @@ const Header: React.FC = () => {
     <HeaderContainer bg={fundoHeader}>
       <ContentWrapper>
         <ItemContainer>
-          <Link to="/">
+          <LinkItem to="/">
             <Restaurantes>Restaurantes</Restaurantes>
-          </Link>
+          </LinkItem>
         </ItemContainer>
         <ItemContainer>
           <Logo src={logo} alt="Logo da Efood" />

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 interface HeaderContainerProps {
@@ -16,6 +17,10 @@ export const HeaderContainer = styled.div<HeaderContainerProps>`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+`
+export const LinkItem = styled(Link)`
+  text-decoration: none;
+  background-color: transparent;
 `
 
 export const Restaurantes = styled.div`
