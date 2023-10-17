@@ -6,7 +6,7 @@ interface HeaderContainerProps {
 }
 
 export const HeaderContainer = styled.div<HeaderContainerProps>`
-  width: 100%;
+  max-width: 100%;
   height: 186px;
   position: relative;
   display: flex;
@@ -14,9 +14,7 @@ export const HeaderContainer = styled.div<HeaderContainerProps>`
   justify-content: center;
   flex-direction: column;
   background-image: url(${(props) => props.bg});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  object-fit: cover;
 `
 export const LinkItem = styled(Link)`
   text-decoration: none;
@@ -28,6 +26,7 @@ export const Restaurantes = styled.div`
   font-size: 18px;
   font-weight: bold;
   color: #e66767;
+  margin-left: 170px;
   background-color: transparent;
 `
 
@@ -43,6 +42,7 @@ export const CartDetails = styled.div`
   font-size: 18px;
   font-weight: bold;
   color: #e66767;
+  margin-right: 150px;
   background-color: transparent;
 `
 export const ContentWrapper = styled.div`
@@ -50,8 +50,6 @@ export const ContentWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
-  padding: 0 20px;
   background-color: transparent;
 `
 

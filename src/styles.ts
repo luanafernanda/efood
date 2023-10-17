@@ -5,31 +5,29 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #FFF8F2;
     font-family: 'Roboto', sans-serif;
   }
 `
-export const CardGrid = styled.div`
-  max-width: 1024px;
-  width: 100%;
-  margin: auto;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 40px 80px;
-`
-export const MainContainer = styled.div`
-  max-width: 1200px;
-  width: 100%;
+export const MainCointainer = styled.div`
+  max-width: 1336px;
   margin: 0 auto;
-  padding: 0 20px;
+  background-color: #fff8f2;
+`
+
+export const CardGrid = styled.div`
+  width: 1024px;
+  display: grid;
+  margin-left: 160px;
+  margin-right: 160px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 46px 80px;
 `
 
 export const CardGridMenu = styled.div`
-  max-width: 1024px;
-  width: 100%;
-  margin: auto;
+  width: 1024px;
+  margin-left: 170px;
+  magin-right: 150px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 40px;
+  grid-gap: 32px;
 `

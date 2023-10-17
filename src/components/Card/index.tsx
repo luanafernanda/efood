@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import star from '../../images/star.png'
 import {
   CardContainer,
@@ -12,7 +11,7 @@ import {
   Rating,
   StarIcon,
   CardDescription,
-  StyledButton
+  LinkButton
 } from './styles'
 
 interface CardProps {
@@ -32,6 +31,16 @@ const Card: React.FC<CardProps> = ({
   rating,
   description
 }) => {
+  const truncateDescription = (text: string) => {
+    const maxWords = 40
+    const words = text.split(' ')
+
+    if (words.length > maxWords) {
+      return words.slice(0, maxWords).join(' ') + '...'
+    }
+    return text
+  }
+
   return (
     <CardContainer>
       <CardImage bgImage={imageSrc}>
@@ -47,11 +56,8 @@ const Card: React.FC<CardProps> = ({
             <StarIcon src={star} alt="Rating Star" />
           </Rating>
         </CardTop>
-        <CardDescription>{description}</CardDescription>
-        {/*<Link to={`/menu/${id}`}> */}
-        <Link to="/menu">
-          <StyledButton>Saiba mais!</StyledButton>
-        </Link>
+        <CardDescription>{truncateDescription(description)}</CardDescription>
+        <LinkButton to={`/menu/${id}`}>Saiba mais!</LinkButton>
       </CardContent>
     </CardContainer>
   )

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 interface ImageProps {
-  bgImage: string
+  image: string
 }
 
 export const ImageContainer = styled.div<ImageProps>`
@@ -13,7 +13,7 @@ export const ImageContainer = styled.div<ImageProps>`
   justify-content: center;
   flex-direction: column;
   margin-bottom: 56px;
-  background-image: url(${(props) => props.bgImage});
+  background-image: url(${(props) => props.image});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

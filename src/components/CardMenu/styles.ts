@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const CardContainer = styled.div`
   width: 320px;
-  margin-bottom: 32px;
+  gap: 0 32px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -11,12 +11,13 @@ export const CardContainer = styled.div`
 
 export const CardImage = styled.div<{ bgImage: string }>`
   background-image: url(${(props) => props.bgImage});
-  background-size: cover;
-  background-position: center;
   width: 304px;
   height: 167px;
   margin: 8px auto 0 auto;
   position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 `
 
 export const CardContent = styled.div`
@@ -39,6 +40,7 @@ export const CardDescription = styled.p`
   color: #ffffff;
   margin-top: 8px;
   background-color: #e66767;
+  line-height: 22px;
 `
 
 export const Button = styled.button`
@@ -98,6 +100,7 @@ export const ModalTextContainer = styled.div`
     padding-bottom: 16px;
     font-size: 14px;
     background-color: #e66767;
+    line-height: 22px;
   }
 `
 

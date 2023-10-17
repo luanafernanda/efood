@@ -19,10 +19,28 @@ interface CardProps {
   imageSrc: string
   title: string
   description: string
+  serves: string
+  price: number
 }
 
-const CardMenu: React.FC<CardProps> = ({ imageSrc, title, description }) => {
+const CardMenu: React.FC<CardProps> = ({
+  imageSrc,
+  title,
+  description,
+  serves,
+  price
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const truncateDescription = (text: string) => {
+    const maxWords = 25
+    const words = text.split(' ')
+
+    if (words.length > maxWords) {
+      return words.slice(0, maxWords).join(' ') + '...'
+    }
+    return text
+  }
 
   return (
     <>
@@ -30,7 +48,7 @@ const CardMenu: React.FC<CardProps> = ({ imageSrc, title, description }) => {
         <CardImage bgImage={imageSrc}></CardImage>
         <CardContent>
           <CardTitle>{title}</CardTitle>
-          <CardDescription>{description}</CardDescription>
+          <CardDescription>{truncateDescription(description)}</CardDescription>
           <Button onClick={() => setIsModalOpen(true)}>Mais detalhes</Button>
         </CardContent>
       </CardContainer>
@@ -43,21 +61,12 @@ const CardMenu: React.FC<CardProps> = ({ imageSrc, title, description }) => {
             <ModalTextContainer>
               <ModalTitle>{title}</ModalTitle>
               <CardDescription>
-                <p style={{ paddingBottom: '32px' }}>
-                  A pizza Margherita é uma pizza clássica da culinária italiana,
-                  reconhecida por sua simplicidade e sabor inigualável. Ela é
-                  feita com uma base de massa fina e crocante, coberta com molho
-                  de tomate fresco, queijo mussarela de alta qualidade,
-                  manjericão fresco e azeite de oliva extra-virgem. A combinação
-                  de sabores é perfeita, com o molho de tomate suculento e
-                  ligeiramente ácido, o queijo derretido e cremoso e as folhas
-                  de manjericão frescas, que adicionam um toque de sabor
-                  herbáceo. É uma pizza simples, mas deliciosa, que agrada a
-                  todos os paladares e é uma ótima opção para qualquer ocasião.
-                </p>
-                <p>Serve: de 2 a 3 pessoas</p>
+                <p style={{ paddingBottom: '32px' }}>{description}</p>
+                <p>{serves}</p>
               </CardDescription>
-              <ButtonText>Adicionar ao carrinho - R$ 60,90</ButtonText>
+              <ButtonText>
+                Adicionar ao carrinho - R$ {price.toFixed(2)}
+              </ButtonText>
             </ModalTextContainer>
           </ModalContent>
         </ModalBackground>

@@ -1,11 +1,20 @@
 import { ImageContainer, Categoria, RestaurantName } from './styles'
-import imagem from '../../images/capaMenu.png'
 
-const RestaurantIntro: React.FC = () => {
+interface RestaurantIntroProps {
+  image: string
+  category: string
+  name: string
+}
+
+const RestaurantIntro: React.FC<RestaurantIntroProps> = ({
+  image,
+  category,
+  name
+}) => {
   return (
-    <ImageContainer bgImage={imagem}>
-      <Categoria>Italiana</Categoria>
-      <RestaurantName>La Dolce Vita Trattoria</RestaurantName>
+    <ImageContainer image={image}>
+      <Categoria>{category}</Categoria>
+      <RestaurantName>{name}</RestaurantName>
     </ImageContainer>
   )
 }

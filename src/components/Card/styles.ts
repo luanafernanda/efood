@@ -1,9 +1,9 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const CardContainer = styled.div`
   width: 472px;
   color: #e66767;
-  margin-bottom: 48px;
   overflow: hidden;
 `
 
@@ -12,32 +12,29 @@ export const CardImage = styled.div<{ bgImage: string }>`
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 200px;
+  height: 217px;
   position: relative;
 `
 
 export const TagContainer = styled.div`
-  font-weight: bold;
-  font-size: 12px;
-  color:
   position: absolute;
-  top: 10px;
-  left: 10px;
+  right: 0;
   display: flex;
-  justify-content: flex-end;
   gap: 8px;
   background-color: transparent;
-  padding: 16px 8px;
+  margin: 16px;
 `
 
 export const Tag = styled.div`
   background-color: #e66767;
   color: #ffebd9;
-  padding: 5px 10px;
+  padding: 6px 4px;
   font-size: 12px;
+  font-weight: bold;
 `
 
 export const CardContent = styled.div`
+  height: 181px;
   padding: 8px;
   display: flex;
   flex-direction: column;
@@ -53,7 +50,8 @@ export const CardTop = styled.div`
 
 export const CardTitle = styled.h3`
   font-size: 18px;
-  font-wight: bold;
+  font-weight: bold;
+  margin: 0;
 `
 
 export const Rating = styled.div`
@@ -68,24 +66,25 @@ export const StarIcon = styled.img`
   height: 21px;
   margin-left: 5px;
   margin-bottom: 4px;
-  color: pink;
 `
 
 export const CardDescription = styled.p`
   font-size: 14px;
   color: #e66767;
-  margin-top: 6px;
+  line-height: 22px;
+  margin-top: 16px;
 `
 
-export const StyledButton = styled.button`
-  align-self: flex-start;
-  margin-top: 15px;
-
+export const LinkButton = styled(Link)`
   background-color: #e66767;
   color: #fff;
   font-size: 14px;
-  font-wight: bold;
+  font-weight: bold;
   padding: 4px 6px;
+  width: 90px;
   border: none;
   cursor: pointer;
+  margin: 16px 8px 8px 0px;
+  text-decoration: none;
+  text-align: center;
 `

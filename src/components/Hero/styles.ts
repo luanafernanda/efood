@@ -5,7 +5,7 @@ type HeroContainerProps = {
 }
 
 export const HeroContainer = styled.div<HeroContainerProps>`
-  width: 100%;
+  max-width: 100%;
   height: 360px;
   position: relative;
   display: flex;
@@ -14,22 +14,23 @@ export const HeroContainer = styled.div<HeroContainerProps>`
   flex-direction: column;
   margin-bottom: 80px;
   background-image: url(${(props) => props.bg});
-  background-position: center;
-  background-size: cover;
+  object-fit: cover;
 `
 
 export const Logo = styled.img`
-  width: 125px;
-  height: 58px;
   position: relative;
-  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 70px;
+  background-color: transparent;
 `
 
 export const StyledH2 = styled.h2`
   position: relative;
   font-size: 36px;
   font-wight: bold;
-  margin-top: 64px;
+  margin-top: 69px;
   margin-bottom: 40px;
   background-color: transparent;
   color: #e66767;
