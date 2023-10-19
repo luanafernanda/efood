@@ -14,6 +14,9 @@ import {
   ModalTitle,
   ButtonText
 } from './styles'
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
+import { Menu } from '../../model/menu'
 
 interface CardProps {
   imageSrc: string
@@ -42,6 +45,21 @@ const CardMenu: React.FC<CardProps> = ({
     return text
   }
 
+  const dispatch = useDispatch()
+  const addToCart = () => {
+    const menuItem: Menu = {
+      foto: imageSrc,
+      nome: title,
+      descricao: description,
+      porcao: serves,
+      preco: price,
+      id: Date.now()
+    }
+
+    dispatch(add(menuItem))
+    dispatch(open())
+  }
+
   return (
     <>
       <CardContainer>
@@ -64,7 +82,7 @@ const CardMenu: React.FC<CardProps> = ({
                 <p style={{ paddingBottom: '32px' }}>{description}</p>
                 <p>{serves}</p>
               </CardDescription>
-              <ButtonText>
+              <ButtonText onClick={addToCart}>
                 Adicionar ao carrinho - R$ {price.toFixed(2)}
               </ButtonText>
             </ModalTextContainer>

@@ -123,6 +123,7 @@ export const ButtonText = styled.button`
   line-height: 16px;
   text-align: center;
   color: #e66767;
+  cursor: pointer;
 `
 
 export const ModalButton = styled.button`

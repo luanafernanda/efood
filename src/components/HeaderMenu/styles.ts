@@ -44,6 +44,7 @@ export const CartDetails = styled.div`
   color: #e66767;
   margin-right: 150px;
   background-color: transparent;
+  cursor: pointer;
 `
 export const ContentWrapper = styled.div`
   display: flex;

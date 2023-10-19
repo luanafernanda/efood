@@ -1,6 +1,5 @@
 import React from 'react'
 import logo from '../../images/logo.png'
-//import MenuImage from '../../images/capaMenu.png'
 import fundoHeader from '../../images/headerMenu.png'
 import { Link } from 'react-router-dom'
 
@@ -13,8 +12,18 @@ import {
   ContentWrapper,
   LinkItem
 } from './styles'
+import { open } from '../../store/reducers/cart'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootReducer } from '../../store/store'
 
 const Header: React.FC = () => {
+  const dispatch = useDispatch()
+  const { items } = useSelector((state: RootReducer) => state.cart)
+
+  const openCart = () => {
+    dispatch(open())
+  }
+
   return (
     <HeaderContainer bg={fundoHeader}>
       <ContentWrapper>
@@ -27,7 +36,9 @@ const Header: React.FC = () => {
           <Logo src={logo} alt="Logo da Efood" />
         </ItemContainer>
         <ItemContainer>
-          <CartDetails>0 produto(s) no carrinho</CartDetails>
+          <CartDetails onClick={openCart}>
+            {items.length} - produto(s) no carrinho
+          </CartDetails>
         </ItemContainer>
       </ContentWrapper>
     </HeaderContainer>

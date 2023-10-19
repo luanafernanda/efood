@@ -1,43 +1,25 @@
-import { useEffect, useState } from 'react'
 import Card from '../components/Card'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
-import { GlobalStyles, CardGrid, MainCointainer } from '../styles'
-
-interface Restaurante {
-  id: number
-  titulo: string
-  destacado: boolean
-  tipo: string
-  avaliacao: number
-  descricao: string
-  capa: string
-  cardapio: Array<{
-    foto: string
-    preco: number
-    id: number
-    nome: string
-    descricao: string
-    porcao: string
-  }>
-}
+import { CardGrid, MainCointainer } from '../styles'
+import { useGetAllRestaurantsQuery } from '../services/api'
 
 const HomePage = () => {
-  const [restaurantes, setRestaurantes] = useState<Restaurante[]>([])
+  const { data: restaurantes, error, isLoading } = useGetAllRestaurantsQuery()
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((response) => response.json())
-      .then((data) => setRestaurantes(data))
-      .catch((error) => console.error('Erro ao buscar os restaurantes:', error))
-  }, [])
+  if (isLoading) {
+    return <p>Carregando...</p>
+  }
 
+  if (error) {
+    return <p>Erro ao buscar os restaurantes.</p>
+  }
   return (
     <>
       <MainCointainer>
         <Hero />
         <CardGrid>
-          {restaurantes.map((restaurante) => (
+          {restaurantes?.map((restaurante) => (
             <Card
               key={restaurante.id}
               id={restaurante.id}
