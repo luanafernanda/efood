@@ -28,10 +28,9 @@ export const CartContainer = styled.div`
 export const SideBar = styled.aside`
   background-color: #e66767;
   z-index: 1;
-  padding: 32px 8px 0 8px;
+  padding: 16px 8px 0 8px;
   max-width: 360px;
   width: 100%;
-  border: 1px solid red;
 `
 
 export const CartList = styled.ul`
@@ -47,6 +46,7 @@ export const CartItem = styled.li`
   margin: 0;
   display: flex;
   background-color: #ffebd9;
+  margin-bottom: 16px;
 
   img {
     width: 80px;
@@ -118,4 +118,5 @@ export const Button = styled.button`
   font-size: 14px;
   text-align: center;
   padding: 4px 0;
+  margin-bottom: 8px;
 `
